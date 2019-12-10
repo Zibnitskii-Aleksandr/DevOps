@@ -1,8 +1,8 @@
 [servers_test]
-ubuntu-test ansible_host=172.17.214.82
+ubuntu-test ansible_host= <<< ip-address >>>
 
 [servers_prod]
-ubuntu-prod ansible_host=172.17.214.94
+ubuntu-prod ansible_host= <<< ip-address >>>
 
 [servers_all:children]
 servers_test
