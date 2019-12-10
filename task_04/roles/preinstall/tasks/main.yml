@@ -1,0 +1,17 @@
+---
+
+- name: Update/Upgrade remote system
+  apt:
+     update_cache     : true
+     upgrade          : dist
+     autoclean        : true
+     autoremove       : true
+     cache_valid_time : 86400
+
+- name: Deploy JAVA Environment
+  apt:
+     name       : openjdk-11-jre
+     state      : present
+     autoremove : yes
+
+...

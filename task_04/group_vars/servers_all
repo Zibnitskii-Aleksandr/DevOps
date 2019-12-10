@@ -1,0 +1,15 @@
+---
+locations              : 'Advanced DevOps Courses by IT-Hillel School'
+
+ansible_connections    : ssh
+ansible_user           : alez
+ansible_ssh_pass       : 1234
+
+ansible_become         : yes
+ansible_become_methods : sudo
+ansible_become_password: 1234
+
+http_port              : 8080
+https_port             : 8443
+admin_username         : admin
+admin_password         : admin

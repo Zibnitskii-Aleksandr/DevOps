@@ -1,0 +1,9 @@
+---
+
+- hosts: servers_all
+
+  roles:
+  - preinstall
+  - tomcat
+
+...

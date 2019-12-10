@@ -1,0 +1,64 @@
+---
+
+- name: create group Tomcat
+  group:
+      name  : tomcat
+
+- name: create user Tomcat
+  user:
+      name       : tomcat
+      group      : tomcat
+      home       : /home/tomcat
+      createhome : no
+
+- name: create directory for Tomcat Server
+  file:
+      path  : "{{ dest_folder }}"
+      state : directory
+
+- name: download and extract Tomcat Server
+  unarchive:
+      src        : http://apache.ip-connect.vn.ua/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz
+      dest       : "{{ dest_folder }}"
+      extra_opts : [ --strip-components=1 ]
+      remote_src : yes
+
+- name: Changing access and owner for Tomcat application directory
+  file:
+      owner   : tomcat
+      group   : tomcat
+      path    : "{{ dest_folder }}"
+      state   : directory
+      mode    : 0755
+      recurse : yes 
+
+- name: configuring Tomcat Server
+  template:
+      src  : server.xml
+      dest : "{{ dest_folder }}conf/"
+  notify: restart tomcat
+
+- name: configuring Tomcat User
+  template:
+      src  : tomcat-users.xml
+      dest : "{{ dest_folder }}conf/"
+  notify: restart tomcat
+
+- name: deploy Tomcat service on remote system
+  copy:
+      src  : tomcat.service
+      dest : /etc/systemd/system/
+      mode : 0755
+
+- name: init and run Tomcat Server
+  systemd:
+      name          : tomcat
+      state         : started
+      enabled       : true
+      daemon_reload : true
+
+- name: waiting for start Tomcat server
+  wait_for:
+      port: "{{ http_port }}"
+
+...
