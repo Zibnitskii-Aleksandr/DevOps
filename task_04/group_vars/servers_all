@@ -2,8 +2,8 @@
 locations              : 'Advanced DevOps Courses by IT-Hillel School'
 
 ansible_connections    : ssh
-ansible_user           : alez
-ansible_ssh_pass       : 1234
+ansible_user           : <<< login >>>
+ansible_ssh_pass       : <<< password >>>
 
 ansible_become         : yes
 ansible_become_methods : sudo
