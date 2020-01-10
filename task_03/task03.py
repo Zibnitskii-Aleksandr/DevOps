@@ -76,8 +76,8 @@ print(open(dstFile, 'r').read(),"\n")
 #____________________________________________________ Task 3
 print("[ Task 3 ]", "-" * 50, "\n")
 
-srcFile ='source_06.txt'
-dstFile ='revers_06.txt'
+srcFile ='source_03.txt'
+dstFile ='revers_03.txt'
 
 srcData = dstData = []
 srcText = dstText = ''
@@ -102,7 +102,7 @@ print(open(dstFile, 'r').read())
 #____________________________________________________ Task 4
 print("[ Task 4 ]", "-" * 50, "\n")
 
-srcFile ='source_06.txt'
+srcFile ='source_03.txt'
 filtrCond = ('a','at','by','for','in','the','on','of')
 dataExclude = []
 

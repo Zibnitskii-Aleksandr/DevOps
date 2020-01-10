@@ -1,7 +1,14 @@
-Домашнее задание 3
-Добавлено: 26.11.2019 08:46
-Дз 2 по Python
-Рассчитать последовательность фибоначчи, длину ряда задает пользователь
-Дан текстовый файл, содержащий целые числа. Удалить из него все четные числа.
-Дан текстовый файл. Создать новый файл, каждая строка которого получается из соответствующей строки исходного файла перестановкой слов в обратном порядке.
-Написать функцию word_counter которая считает количество слов в тексте. Функция должна принимать либо путь к файлу, либо строку с текстом
+Домашнее задание 4
+Добавлено: 01.12.2019 16:25
+Hometask: install tomcat with Ansible
+
+Create a playbook:​
+
+    Update and upgrade yum-based Linux​
+    Install Java 8 (or other version)​
+    Create system tomcat user and group and Change ownership of Tomcat installation​
+    Install and configure tomcat​
+    Creates tomcat server user (use template file for this)​
+    <user username="{{ admin_username }}" password="{{ admin_password }}" roles="manager-gui" /> -- example entry​
+    You should use handler to restart tomcat, inventory (preferred), vars​
+    Start and enable tomcat and use wait_for module to wait for tomcat to start
